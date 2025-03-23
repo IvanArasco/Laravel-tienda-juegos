@@ -17,12 +17,25 @@
                     <li class="list-inline-item linkedin">
                         <a href="https://www.linkedin.com/in/ivan-arasco-millan/" target="_blank">LinkedIn</a>
                     </li>
+                    @guest
+
                     <li class="list-inline-item login">
                         <a href="{{ route('login') }}" target="_blank">Iniciar sesión</a>
                     </li>
                     <li class="list-inline-item register">
                         <a href="{{ route('register') }}" target="_blank">¿Nuevo usuario?</a>
                     </li>
+
+                    @endguest
+
+                    @auth
+
+                    <li class="list-inline-item logout">
+                        <a href="{{ route('logout') }}" target="_blank">Cerrar sesión</a>
+                    </li>
+                    
+                    @endauth
+
                 </ul>
             </div>
         </nav>

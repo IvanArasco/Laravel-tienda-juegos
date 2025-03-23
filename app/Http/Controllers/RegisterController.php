@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class RegisterController extends Controller
 {
@@ -12,15 +15,15 @@ class RegisterController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:8|confirmed',
+            'password' => 'required|string|min:8',
         ]);
 
         // Si la validación falla, redirigir al formulario con errores
         if ($validator->fails()) {
             return redirect()->back()
-                             ->withErrors($validator)
-                             ->withInput();
-        }
+                ->withErrors($validator)
+                ->withInput();
+        }   
 
         // Crear el usuario en la base de datos
         $user = User::create([

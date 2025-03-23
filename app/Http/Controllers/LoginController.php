@@ -19,7 +19,7 @@ class LoginController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate(); // regenerar la sesión nos ayuda a evitar ataques
  
-            return redirect()->intended('dashboard');
+            return redirect()->intended('/');
         }
  
         return back()->withErrors([

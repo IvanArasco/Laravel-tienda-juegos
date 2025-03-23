@@ -7,23 +7,27 @@ use App\Http\Controllers\GameController;
 
 Route::redirect('/', '/games');
 
-Route::resource('games', GameController::class);
+Route::get('/games', [GameController::class, 'index']);
 
-// Ruta para mostrar el formulario de login
-Route::get('login', function () {
-    return view('login');
+// Mostrar el formulario de login
+Route::get('login', function () { 
+    return view('login'); 
 })->name('login');
 
-// Ruta para procesar el login
+// Procesar el login
 Route::post('login', [LoginController::class, 'authenticate'])->name('login.authenticate');
 
+Route::get('/logout', function () {
+    Auth::logout();
+   // return redirect('/');
+})->name('logout');
 
-// Ruta para mostrar el formulario de registro
+// Mostrar el formulario de registro
 Route::get('register', function () {
     return view('register');
 })->name('register');
 
-// Ruta para procesar el registro
+// Procesar el registro
 Route::post('register', [RegisterController::class, 'register'])->name('register.register');
 
 
