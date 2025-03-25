@@ -21,10 +21,10 @@
 
                     @guest
                         <li class="list-inline-item login">
-                            <a href="{{ route('login') }}" target="_blank">Iniciar sesión</a>
+                            <a class="btn btn-secondary" href="{{ route('login') }}" target="_blank">Iniciar sesión</a>
                         </li>
                         <li class="list-inline-item register">
-                            <a href="{{ route('register') }}" target="_blank">¿Nuevo usuario?</a>
+                            <a class="btn btn-primary" href="{{ route('register') }}" target="_blank">¿Nuevo usuario?</a>
                         </li>
                     @endguest
 
@@ -34,7 +34,7 @@
                         </li>
 
                         <li class="list-inline-item logout">
-                            <a href="{{ route('logout') }}" target="_blank">Cerrar sesión</a>
+                            <a class="btn btn-danger" href="{{ route('logout') }}" target="_blank">Cerrar sesión</a>
                         </li>
                     @endauth
                 </ul>

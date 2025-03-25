@@ -2,8 +2,6 @@
 
 @section('title', 'Iniciar Sesión')
 
-@section('header')
-
 @section('content')
 
     <h1 class="fw-bold">Iniciar Sesión</h1>
@@ -32,7 +30,5 @@
 
         <button type="submit" class="btn btn-primary">Iniciar sesión</button>
     </form>
-
-    @endsection
 
 @endsection

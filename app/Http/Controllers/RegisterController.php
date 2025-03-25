@@ -25,7 +25,7 @@ class RegisterController extends Controller
                 ->withInput();
         }   
 
-        // Crear el usuario en la base de datos
+        // Crear el usuario y registrarlo en la base de datos
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
@@ -36,7 +36,7 @@ class RegisterController extends Controller
         // Iniciar sesión después del registro
         auth()->login($user);
 
-        // Redirigir al usuario a una página de bienvenida o al dashboard
+        // Redirigir al usuario a una página de inicio
         return redirect()->route('games');
     }
 }

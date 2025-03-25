@@ -8,7 +8,7 @@ use App\Http\Controllers\GameController;
 
 Route::redirect('/', '/games');
 
-Route::get('/games', [GameController::class, 'index']);
+Route::get('/games', [GameController::class, 'index'])->name('games');
 
 // Mostrar el formulario de login
 Route::get('login', function () { 
@@ -31,7 +31,12 @@ Route::get('register', function () {
 // Procesar el registro
 Route::post('register', [RegisterController::class, 'register'])->name('register.register');
 
-// Comprar juego
-Route::post('/comprar/{game}', [OrderController::class, 'comprarJuego'])->middleware('auth');
+// Mostrar el formulario de creación de un juego
+Route::get('/createGame', function () {
+    return view('creategame');
+})->middleware('auth')->name('createGame');
 
+// Procesar la creación de un juego
+Route::post('createGame', [GameController::class, 'createGame'])->name('game.create')->middleware('auth');
 
+Route::post('/cart/add/{id}', [OrderController::class, 'addToCart'])->name('cart.add');
