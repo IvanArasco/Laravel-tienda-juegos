@@ -6,6 +6,7 @@
         <title>@yield('title', 'Tienda de Juegos')</title>
 
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
     </head>
     <body>
         <nav class="menu-top">
@@ -17,25 +18,25 @@
                     <li class="list-inline-item linkedin">
                         <a href="https://www.linkedin.com/in/ivan-arasco-millan/" target="_blank">LinkedIn</a>
                     </li>
+
                     @guest
-
-                    <li class="list-inline-item login">
-                        <a href="{{ route('login') }}" target="_blank">Iniciar sesión</a>
-                    </li>
-                    <li class="list-inline-item register">
-                        <a href="{{ route('register') }}" target="_blank">¿Nuevo usuario?</a>
-                    </li>
-
+                        <li class="list-inline-item login">
+                            <a href="{{ route('login') }}" target="_blank">Iniciar sesión</a>
+                        </li>
+                        <li class="list-inline-item register">
+                            <a href="{{ route('register') }}" target="_blank">¿Nuevo usuario?</a>
+                        </li>
                     @endguest
 
                     @auth
+                        <li class="list-inline-item saldo">
+                            <span id="saldo-usuario">Saldo: ${{ session('saldo', 0) }}</span>
+                        </li>
 
-                    <li class="list-inline-item logout">
-                        <a href="{{ route('logout') }}" target="_blank">Cerrar sesión</a>
-                    </li>
-                    
+                        <li class="list-inline-item logout">
+                            <a href="{{ route('logout') }}" target="_blank">Cerrar sesión</a>
+                        </li>
                     @endauth
-
                 </ul>
             </div>
         </nav>

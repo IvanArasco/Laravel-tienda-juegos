@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\GameController;
 
 Route::redirect('/', '/games');
@@ -29,5 +30,8 @@ Route::get('register', function () {
 
 // Procesar el registro
 Route::post('register', [RegisterController::class, 'register'])->name('register.register');
+
+// Comprar juego
+Route::post('/comprar/{game}', [OrderController::class, 'comprarJuego'])->middleware('auth');
 
 

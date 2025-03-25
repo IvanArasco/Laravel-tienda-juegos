@@ -19,6 +19,9 @@ class LoginController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate(); // regenerar la sesión nos ayuda a evitar ataques
  
+            $user = Auth::user();
+            $request->session()->put('saldo', $user->saldo);
+
             return redirect()->intended('/');
         }
  

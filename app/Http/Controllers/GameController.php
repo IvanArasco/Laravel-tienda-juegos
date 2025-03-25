@@ -9,15 +9,17 @@ use Illuminate\Http\Request;
 class GameController extends Controller
 {
 
-    public function index()
+    public function index() // ver todos los juegos
     {
         $games = Game::all();
         return view('welcome', ['games' => $games]);
     }
-    public function show(string $id)
-    {
+    public function show(string $id) { // ver el juego
         return view('welcome', [
             'game' => Game::findOrFail($id)
         ]);
+    }
+    public function create(){ // crear un juego
+
     }
 }
