@@ -1,7 +1,6 @@
 @extends('app')
 
 @section('header')
-
     <div class="background-header">
         <div class="block-main-header">
             <div class="container">
@@ -11,11 +10,9 @@
             </div>
         </div>
     </div>
-
 @endsection
 
 @section('content')
-
     <div class="block-games-list">
         @if(isset($games) && $games->isNotEmpty())
             @foreach($games as $game)
@@ -24,10 +21,14 @@
                     <img class="game-image" src="{{ asset('storage/' . $game->portrait) }}" alt="{{ $game->name }}">
                     <p class="game-description"> {{ $game->description }}</p>
                     <p class="game-price">Precio: ${{ $game->price }}</p>
-                    <form action="{{ route('cart.add', $game->id) }}" method="POST">
-                        @csrf
-                        <button class="btn btn-success game-addcart" type="submit">Añadir al carrito</button>
-                    </form>
+
+                    @if(auth()->check())
+                        <form action="{{ route('cart.add', $game->id) }}" method="POST">
+                            @csrf
+                            <button class="btn btn-success game-addcart" type="submit">Añadir al carrito</button>
+                        </form>
+                    @endif
+                    
                 </div>
             @endforeach
         @else
@@ -39,6 +40,5 @@
         @endif
 
     </div>
-
 @endsection
 

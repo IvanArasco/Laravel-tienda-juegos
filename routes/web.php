@@ -20,7 +20,7 @@ Route::post('login', [LoginController::class, 'authenticate'])->name('login.auth
 
 Route::get('/logout', function () {
     Auth::logout();
-   // return redirect('/');
+    return redirect('/');
 })->name('logout');
 
 // Mostrar el formulario de registro
@@ -39,4 +39,5 @@ Route::get('/createGame', function () {
 // Procesar la creación de un juego
 Route::post('createGame', [GameController::class, 'createGame'])->name('game.create')->middleware('auth');
 
-Route::post('/cart/add/{id}', [OrderController::class, 'addToCart'])->name('cart.add');
+// añadir al carrito el juego seleccionado mediante el botón "añadir al carrito"
+Route::post('/cart/add/{id}', [OrderController::class, 'addToCart'])->name('cart.add')->middleware('auth');

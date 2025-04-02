@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             // Agregar la columna 'role_id' como una clave foránea que hace referencia a la tabla 'roles'
-            $table->foreignId('role_id')->constrained()->onDelete('cascade');
+            $table->foreignId('role_id')->constrained()->onDelete('cascade')->default(2);
         });
     }
 

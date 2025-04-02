@@ -5,13 +5,13 @@
 @section('content')
 
 @if ($errors->any())
-<div>
-    <ul>
-        @foreach ($errors->all() as $error)
-            <li class="error">{{ $error }}</li>
-        @endforeach
-    </ul>
-</div>
+    <div>
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li class="error">{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
 @endif
 
 <form method="POST" action="{{ route('game.create') }}" enctype="multipart/form-data">
@@ -28,7 +28,6 @@
 
     <div class="mb-3">  
         <label for="portrait" class="form-label">Portada</label>
-        <!-- Añadir campo para poner imagen de portada del juego --> 
         <input type="file" name="portrait" id="portrait" class="form-control" accept="image/*">
     </div>
 

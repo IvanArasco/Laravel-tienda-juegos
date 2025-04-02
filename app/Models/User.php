@@ -22,6 +22,7 @@ class User extends Authenticatable
         'email',
         'password',
         'role_id',
+        'saldo'
     ];
 
     /**
@@ -55,5 +56,7 @@ class User extends Authenticatable
     public function isAdmin()
     {
         return $this->role && $this->role->name === 'admin';
+        // para evitar el "trying to get object of null" 
+        // alternativa con operador ?-> : return $this->role?->name === 'admin';
     }
 }

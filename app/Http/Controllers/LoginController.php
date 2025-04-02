@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class LoginController extends Controller
 {
@@ -20,7 +21,7 @@ class LoginController extends Controller
             $request->session()->regenerate(); // regenerar la sesión nos ayuda a evitar ataques
  
             $user = Auth::user();
-            $request->session()->put('saldo', $user->saldo);
+            Session::put('saldo', $user->saldo);
 
             return redirect()->intended('/');
         }

@@ -30,7 +30,6 @@ class RegisterController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password), // encriptar la contraseña
-            'role_id' => 2, // Asignar rol 'normal' por defecto
         ]);
 
         // Iniciar sesión después del registro

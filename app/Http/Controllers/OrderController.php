@@ -15,7 +15,7 @@ class OrderController extends Controller
     {
         $game = Game::findOrFail($id);
 
-        // Obtener el carrito actual desde la sesión
+        // Obtener el carrito desde la sesión (si no hay, lo crea)
         $cart = Session::get('cart', []);
 
         // Agregar el juego al carrito
