@@ -39,5 +39,15 @@ Route::get('/createGame', function () {
 // Procesar la creación de un juego
 Route::post('createGame', [GameController::class, 'createGame'])->name('game.create')->middleware('auth');
 
-// añadir al carrito el juego seleccionado mediante el botón "añadir al carrito"
+// Añadir al carrito el juego seleccionado mediante el botón "añadir al carrito"
 Route::post('/cart/add/{id}', [OrderController::class, 'addToCart'])->name('cart.add')->middleware('auth');
+
+// Ver el carrito
+Route::get('/cart', [OrderController::class, 'showCart'])->name('cart.show')->middleware('auth');
+
+// eliminar un juego del carrito
+Route::delete('/cart/remove/{id}', [OrderController::class, 'removeFromCart'])->name('cart.remove')->middleware('auth');
+
+// vaciar el carrito
+Route::delete('/cart/clear', [OrderController::class, 'clearCart'])->name('cart.clear')->middleware('auth');
+

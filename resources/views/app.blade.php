@@ -40,6 +40,10 @@
                         <li class="ms-3 list-inline-item balance">
                             <span id="user-balance">Saldo: {{ session('saldo') }} € </span>
                         </li>
+
+                        <li class="ms-3 list-inline-item cart">
+                            <a href="{{ route('cart.show') }}" class="btn btn-primary" id="cart">Ver Carrito</a>
+                        </li>
                     @endauth
                 </ul>
             </div>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Game;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class GameController extends Controller
 {
@@ -12,7 +13,8 @@ class GameController extends Controller
     public function index() // ver todos los juegos
     {
         $games = Game::all();
-        return view('welcome', ['games' => $games]);
+        $cart = Session::get('cart', []); // Recuperar el carrito de la sesión
+        return view('welcome',  ['games' => $games, 'cart' => $cart]);
     }
     public function show(string $id) { // ver el juego
         return view('welcome', [
