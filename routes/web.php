@@ -18,7 +18,7 @@ Route::get('login', function () {
 // Procesar el login
 Route::post('login', [LoginController::class, 'authenticate'])->name('login.authenticate');
 
-Route::get('/logout', function () {
+Route::get('logout', function () {
     Auth::logout();
     return redirect('/');
 })->name('logout');
@@ -32,7 +32,7 @@ Route::get('register', function () {
 Route::post('register', [RegisterController::class, 'register'])->name('register.register');
 
 // Mostrar el formulario de creación de un juego
-Route::get('/createGame', function () {
+Route::get('createGame', function () {
     return view('creategame');
 })->middleware('auth')->name('createGame');
 
@@ -43,7 +43,7 @@ Route::post('createGame', [GameController::class, 'createGame'])->name('game.cre
 Route::post('/cart/add/{id}', [OrderController::class, 'addToCart'])->name('cart.add')->middleware('auth');
 
 // Ver el carrito
-Route::get('/cart', [OrderController::class, 'showCart'])->name('cart.show')->middleware('auth');
+Route::get('cart', [OrderController::class, 'showCart'])->name('cart.show')->middleware('auth');
 
 // eliminar un juego del carrito
 Route::delete('/cart/remove/{id}', [OrderController::class, 'removeFromCart'])->name('cart.remove')->middleware('auth');
@@ -51,3 +51,5 @@ Route::delete('/cart/remove/{id}', [OrderController::class, 'removeFromCart'])->
 // vaciar el carrito
 Route::delete('/cart/clear', [OrderController::class, 'clearCart'])->name('cart.clear')->middleware('auth');
 
+// Procesar fin de compra del carrito
+Route::post('store', [OrderController::class, 'storeCart'])->name('cart.store')->middleware('auth');

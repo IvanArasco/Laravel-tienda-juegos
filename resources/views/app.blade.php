@@ -14,7 +14,7 @@
     <body>
         <nav class="menu-top">
             <div class="container">
-                <ul class="navbar-nav justify-content-end flex-row">
+                <ul class="navbar-nav align-items-center justify-content-end flex-row">
                     <li class="list-inline-item phone">
                         <a class="btn btn-primary" href="tel:+34640279463">640279463</a>
                     </li>
@@ -38,7 +38,7 @@
                         </li>
 
                         <li class="ms-3 list-inline-item balance">
-                            <span id="user-balance">Saldo: {{ session('saldo') }} € </span>
+                            <span id="user-balance">Saldo: {{ auth()->user()->saldo }} € </span>
                         </li>
 
                         <li class="ms-3 list-inline-item cart">
