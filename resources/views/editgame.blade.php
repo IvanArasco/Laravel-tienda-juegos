@@ -29,8 +29,7 @@
 
     <div class="mb-3">  
         <label for="portrait" class="form-label">Portada</label>
-        <input type="file" name="portrait" id="portrait" class="form-control" accept="image/*" 
-            value="{{ old('portrait', asset('storage/'.$game->portrait)) }}">
+        <input type="file" name="portrait" id="portrait" class="form-control" accept="image/*">
     </div>
 
     <div class="mb-3">

@@ -25,8 +25,13 @@ class GameController extends Controller
             
         $allGenres = array_unique($allGenres);
         sort($allGenres);
-        
-        $games = Game::all(); 
+            
+        // Filtrar juegos por género si se ha seleccionado uno
+        if ($request->has('genre') && $request->genre != '') {
+            $games = Game::where('genre', 'LIKE', '%' . $request->genre . '%')->get();
+        } else {
+            $games = Game::all(); // Si no hay filtro, obtener todos los juegos
+        }
      
         $cart = Session::get('cart', []); // Recuperar el carrito de la sesión
         return view('welcome',  ['games' => $games, 'cart' => $cart, 'genres' => $allGenres]);

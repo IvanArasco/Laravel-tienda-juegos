@@ -33,7 +33,9 @@
                 <select class="form-select" id="genreFilter" name="genre" aria-label="Seleccionar género">
                     <option value="">Selecciona un género</option>
                     @foreach($genres as $genre)
-                        <option value="{{ $genre }}" {{ request()->genre == $genre ? 'selected' : '' }}>{{ ucfirst($genre) }}</option>
+                        <option value="{{ $genre }}" {{ request()->genre == $genre ? 'selected' : '' }}>
+                            {{ ucfirst($genre) }}
+                        </option>
                     @endforeach
                 </select>
             </form>
