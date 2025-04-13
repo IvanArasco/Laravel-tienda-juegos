@@ -24,17 +24,17 @@
 
                     @guest
                         <li class="list-inline-item login">
-                            <a class="btn btn-success" href="{{ route('login') }}" target="_blank">Iniciar sesión</a>
+                            <a class="btn btn-success" href="{{ route('login') }}">Iniciar sesión</a>
                         </li>
                         <li class="list-inline-item register">
-                            <a class="btn btn-primary" href="{{ route('register') }}" target="_blank">¿Nuevo usuario?</a>
+                            <a class="btn btn-primary" href="{{ route('register') }}">¿Nuevo usuario?</a>
                         </li>
                     @endguest
 
                     @auth
                       
                         <li class="list-inline-item logout">
-                            <a class="btn btn-danger" href="{{ route('logout') }}" target="_blank">Cerrar sesión</a>
+                            <a class="btn btn-danger" href="{{ route('logout') }}">Cerrar sesión</a>
                         </li>
 
                         <li class="ms-3 list-inline-item balance">

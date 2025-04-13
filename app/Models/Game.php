@@ -10,6 +10,7 @@ class Game extends Model
         'name',
         'description',
         'portrait',
+        'genre',
         'price',
     ];
     public function orders()
