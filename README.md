@@ -8,7 +8,7 @@ https://laravel-tienda-juegos-production.up.railway.app/
 <ul>
 
 <li> Creación y edición de productos. </li>
-<li> Creación de pedidos, compras mediante saldo (uso de sesión, saldo y carritos). </li>
+<li> Creación de pedidos, compras mediante saldo (uso de sesión y carrito). </li>
 
 </ul>
 
