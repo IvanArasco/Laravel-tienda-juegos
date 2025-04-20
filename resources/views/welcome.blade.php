@@ -44,11 +44,19 @@
         @if(isset($games) && $games->isNotEmpty())
             @foreach($games as $game)
                 <div class="game-card" data-genre="{{ $game->genre }}">
-                    <h3 class="game-name">{{ $game->name }}</h3>
-                    <img class="game-image" src="{{ asset('storage/' . $game->portrait) }}" alt="{{ $game->name }}">
-                    <p class="game-description"> {{ $game->description }}</p>
-                    <p class="game-price">Precio: ${{ $game->price }}</p>
+                    <div class="row">
+                        <div class="col-2 col-lg-2 col-sm-2">
+                            <h3 class="game-name">{{ $game->name }}</h3>
+                            <img class="game-image" src="{{ asset('storage/' . $game->portrait) }}" alt="{{ $game->name }}">
+                        </div>
+                        <div class="d-flex align-items-center col-5 col-lg-5 col-sm-5">
 
+                            <p class="game-description"> {{ $game->description }}</p>
+                        </div>
+                        <div class="col-2 col-lg-2 col-sm-2">
+                            <p class="game-price">Precio: ${{ $game->price }}</p>
+                        </div>
+                    </div>
                     @if(auth()->check() && auth()->user()->isAdmin())
                         <form action="{{ route('game.edit', $game->id) }}" method="GET">
                             @csrf

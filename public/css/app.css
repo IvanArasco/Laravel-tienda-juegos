@@ -1,0 +1,29 @@
+body {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+}
+
+.main-content .block-games-list h3 {
+  font-size: 1.5rem;
+  color: #50575f;
+}
+.main-content .block-games-list .genre-filter {
+  margin: 1rem 0;
+}
+.main-content .block-games-list .game-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 1.25rem;
+}
+.main-content .block-games-list .game-card .game-image {
+  border-radius: 8px;
+  max-width: 100%;
+  height: auto;
+}
+.main-content .block-games-list .game-card .game-description {
+  color: #50575f;
+}
+.main-content .block-games-list .game-card .game-price {
+  font-weight: 700;
+}

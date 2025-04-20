@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use App\Models\Order;
 use App\Models\Game;
 use Illuminate\Support\Facades\Session;
@@ -67,8 +65,6 @@ class OrderController extends Controller
 
         $user = auth()->user();
 
-        $userBalance = $user->saldo;
-
         // Verificar si hay productos en el carrito
         if (empty($cart)) {
             return redirect()->route('cart.show')->with('error', 'Tu carrito está vacío.');
@@ -80,8 +76,8 @@ class OrderController extends Controller
         }, $cart));
 
         // Verificar si hay saldo suficiente para realizar el pedido.
-        if ($userBalance >= $orderPrice){
-            $user->saldo -= $orderPrice;
+        if ($user->balance >= $orderPrice){
+            $user->balance -= $orderPrice;
             $user->save();
         } else {
             return redirect()->back()->with('error', 'Saldo insuficiente.');
@@ -89,13 +85,13 @@ class OrderController extends Controller
 
         // Registrar el pedido en la base de datos
         $order = Order::create([
-            'user_id' => auth()->id(), // ID del usuario autenticado
+            'user_id' => auth()->id(), // ID del usuario autenticado, el dueño del carrito
             'price' => $orderPrice,
             'created_at' => now(),
             'updated_at' => now(),
         ]);
 
-        // Asociar los productos del carrito al pedido (relación de muchos a muchos)
+        // Asociar los productos del carrito al pedido
         foreach ($cart as $id => $game) {
             $order->games()->attach($id, [
                 'quantity' => $game['quantity'],
