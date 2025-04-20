@@ -33,6 +33,15 @@ body {
       .game-price {
         font-weight: 700;
       }
+      .form-buttons{
+        display: flex;
+        justify-content: flex-end;
+        gap: 8px;
+        margin: 1rem 0;
+      }
+    }
+    .btn-create-game{
+      margin: 1rem 0;
     }
   }
 }

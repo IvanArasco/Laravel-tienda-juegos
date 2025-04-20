@@ -57,20 +57,20 @@
                             <p class="game-price">Precio: ${{ $game->price }}</p>
                         </div>
                     </div>
-                    @if(auth()->check() && auth()->user()->isAdmin())
-                        <form action="{{ route('game.edit', $game->id) }}" method="GET">
-                            @csrf
-                            <button class="btn btn-primary" type="submit">Editar juego</button>
-                        </form>
-                    @endif
-
                     @if(auth()->check())
+                    <div class="form-buttons">
+                        @if (auth()->user()->isAdmin())
+                            <form action="{{ route('game.edit', $game->id) }}" method="GET">
+                                @csrf
+                                <button class="btn btn-primary" type="submit">Editar juego</button>
+                            </form>
+                        @endif
                         <form action="{{ route('cart.add', $game->id) }}" method="POST">
                             @csrf
                             <button class="btn btn-success" type="submit">Añadir al carrito</button>
                         </form>
+                    </div>
                     @endif
-                    
                 </div>
             @endforeach
         @else
@@ -78,7 +78,7 @@
         @endif
         
         @if(auth()->check() && auth()->user()->isAdmin())
-            <a class="btn btn-primary" href="{{ route('createGame') }}">Crear juego</a>
+            <a class="btn btn-primary btn-create-game" href="{{ route('createGame') }}">Crear juego</a>
         @endif
 
     </div>
