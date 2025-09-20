@@ -6,6 +6,8 @@ https://laravel-tienda-juegos-production.up.railway.app/
 
 # Vista previa del proyecto
 
+El proyecto se centra en la funcionalidad, más que en el diseño. Se trata de un CRUD de videojuegos con sesión y carrito.
+
 ### Listado de juegos
 ![Games](./public/images/preview/games.png)
 
