@@ -1,8 +1,10 @@
 @extends('app')
 
-@section('title', 'Crear nuevo juego')
+@section('title', 'Editar juego')
 
 @section('content')
+
+<h1> Editar juego : {{ old('name', $game->name) }} </h1>
 
 @if ($errors->any())
     <div class="alert alert-danger">

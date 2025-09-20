@@ -47,7 +47,7 @@ class GameController extends Controller
          $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:100|unique:games',
             'description' => 'required|string|max:255',
-            'portrait' => 'required|mimes:jpeg,png,jpg,gif|max:10240',
+            'portrait' => 'required|mimes:jpeg,webp,png,jpg,gif|max:10240',
             'genre' => 'required|array|min:1',
             'price' => 'required|numeric|min:0',
         ]);
@@ -90,7 +90,7 @@ class GameController extends Controller
             'description' => 'required|string',
             'genre' => 'required|array|min:1',
             'price' => 'required|numeric',
-            'portrait' => 'nullable|image|max:2048',
+            'portrait' => 'required|mimes:jpeg,webp,png,jpg,gif|max:10240',
         ]);
     
         // Si la validación falla, redirigir al formulario con errores
@@ -99,6 +99,8 @@ class GameController extends Controller
             ->withErrors($validator)
             ->withInput();
         }   
+
+        $data = $validator->validated();
 
         if ($request->hasFile('portrait')) {
             $data['portrait'] = $request->file('portrait')->store('portraits', 'public');

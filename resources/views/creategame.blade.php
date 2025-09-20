@@ -14,6 +14,8 @@
     </div>
 @endif
 
+<h1> Crear juego </h1>
+
 <form method="POST" action="{{ route('game.create') }}" enctype="multipart/form-data">
     @csrf
     <div class="mb-3">

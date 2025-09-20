@@ -1,16 +1,25 @@
 <h2> LINK DE PRODUCCIÓN: </h2>
 https://laravel-tienda-juegos-production.up.railway.app/
+(No funciona el enlace porque expiró el periodo de alojamiento gratuito)
 
 <hr>
 
-<h3> Propósitos del proyecto: </h3>
+# Vista previa del proyecto
 
-<ul>
+### Listado de juegos
+![Games](./public/images/preview/games.png)
 
-<li> Creación de pedidos. </li>
-<li> Servicios de compras. </li>
-<li> Opinión de los productos. </li>
-<li> Correos de confirmación de compras. </li>
+---
 
-</ul>
+### Carrito de compra
+![Cart](./public/images/preview/cart.png)
 
+---
+
+### Crear juego
+![Create Game](./public/images/preview/creategame.png)
+
+---
+
+### Editar juego
+![Edit Game](./public/images/preview/editgame.png)
